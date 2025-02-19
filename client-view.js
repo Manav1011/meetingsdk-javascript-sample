@@ -1,15 +1,15 @@
 ZoomMtg.preLoadWasm()
 ZoomMtg.prepareWebSDK()
 
-var authEndpoint = ''
-var sdkKey = ''
-var meetingNumber = '123456789'
-var passWord = ''
-var role = 0
+var authEndpoint = 'http://localhost:4000'
+var sdkKey = 'GVkI9tvlSEasIJ_WSNL0UA'
+var meetingNumber = '77535486502'
+var passWord = '123456'
+var role = 1
 var userName = 'JavaScript'
-var userEmail = ''
+var userEmail = 'manavshah1011.ms@gmail.com'
+var zakToken = 'eyJ0eXAiOiJKV1QiLCJzdiI6IjAwMDAwMSIsInptX3NrbSI6InptX28ybSIsImFsZyI6IkhTMjU2In0.eyJhdWQiOiJjbGllbnRzbSIsInVpZCI6ImtlZ0NYODhrUnZLVUkxb2V4RXh2dVEiLCJ6aWQiOiI3NzAzZmYxODg5YWU0MmFmYTJhZjYzOTY4ZGQwOTNjYyIsImlzcyI6IndlYiIsInNrIjoiMCIsInN0eSI6MSwid2NkIjoidXMwNCIsImNsdCI6MCwiZXhwIjoxNzM5Nzc2Nzg1LCJpYXQiOjE3Mzk3Njk1ODUsImFpZCI6IjU3dFFMUUpnVGNtOTRrcllXMHpuVXciLCJjaWQiOiIifQ.JSR87ClKkN81xsqMaHSxPEtgoyZFnUfiKBlCEcj_3rI'
 var registrantToken = ''
-var zakToken = ''
 var leaveUrl = 'https://zoom.us'
 
 function getSignature() {
@@ -31,6 +31,27 @@ function getSignature() {
   	console.log(error)
   })
 }
+const customButton = {
+  text: 'Your Button Text', // The label of your button
+  onClick: () => {
+    // Define the action to be performed when the button is clicked
+    console.log('Custom button clicked');
+  },
+  className: 'your-custom-class', // Optional: Add a custom class for styling
+}
+
+
+const initOptions = {
+  zoomAppRoot: meetingSDKElement, // Replace with your element ID
+  language: 'en-US',
+  patchJsMedia: true,
+  leaveOnPageUnload: true,
+  customize: {
+    toolbar: {
+      buttons: [customButton],
+    },
+  },
+};
 
 function startMeeting(signature) {
 
